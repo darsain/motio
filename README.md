@@ -48,7 +48,7 @@ If motio is called on more than one element, it returns an array of instances.
 #### Usage:
 
 ```js
-var bgPan = $('#bg').motio( { paused: 1 }, true );
+var bgPan = $('#bg').motio( options, true );
 
 bgPan.set( 'speed', 100 );
 bgPan.play();
@@ -110,8 +110,10 @@ $(selector).motio( 'set', property, value );
 
 Updates one of the options. Only these options can be updates: **speed**, **fps**
 
-**property:** `String` name of the property that should be updated
-**value:** `Mixed` new value of the property
+###### Arguments:
+
++ **property:** `String` name of the property that should be updated
++ **value:** `Mixed` new property value
 
 ### toStart
 
@@ -121,7 +123,9 @@ $(selector).motio( 'toStart' [, immediate ] );
 
 Animates the animation to the start and than triggers pause. Doesn't work with panning animations.
 
-**immediate:** `Bool` move to the start immediately without animation
+###### Arguments:
+
++ **immediate:** `Bool` move to the start immediately without animation
 
 ### toEnd
 
@@ -131,7 +135,9 @@ $(selector).motio( 'toStart' [, immediate ] );
 
 Animates the animation to the end and than triggers pause. Doesn't work with panning animations.
 
-**immediate:** `Bool` move to the end immediately without animation
+###### Arguments:
+
++ **immediate:** `Bool` move to the end immediately without animation
 
 ### to
 
@@ -141,8 +147,10 @@ $(selector).motio( 'to', frame [, immediate ] );
 
 Animates the animation to the passed frame index. Doesn't work with panning animations.
 
-**frame:** `Int` frame index starting at `0`
-**immediate:** `Bool` move to the end immediately without animation
+###### Arguments:
+
++ **frame:** `Int` frame index starting at `0`
++ **immediate:** `Bool` move to the end immediately without animation
 
 ### on
 
@@ -153,6 +161,8 @@ $(selector).motio( 'on', eventName, function );
 ```
 
 Binds a callback function to one of the custom events trigger by motio.
+
+###### Arguments:
 
 + **eventName:** `String` name of a custom event to bind the function to
 + **function:** `Function` callback function
@@ -168,6 +178,8 @@ $(selector).motio( 'off', eventName [, function ] );
 ```
 
 Unbinds a callback function from one of the custom events trigger by motio. If no function is specified, it unbinds all callbacks.
+
+###### Arguments:
 
 + **eventName:** `String` name of a custom event to unbind the function from
 + **function:** `Function` callback function
@@ -194,7 +206,6 @@ $(selector).motio( 'on', eventName, function );
 // or directly via Motio instance
 var motioInstance = $(selector).motio( options, true );
 motioInstance.on( eventName, function );
-
 // jQuery <1.7
 $(selector).bind( 'motio:eventName', function );
 ```
@@ -205,7 +216,6 @@ And similarly unbinding with:
 $(selector).motio( 'off', eventName, function );
 // or via instance
 motioInstance.off( eventName, function );
-
 // jQuery <1.7
 $(selector).unbind( 'motio:eventName', function );
 ```
