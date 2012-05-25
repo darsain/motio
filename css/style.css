@@ -393,12 +393,7 @@ button.btn.small, input[type="submit"].btn.small { *padding-top: 3px; *padding-b
 .label-important { background-color: #b94a48; }
 .label-warning { background-color: #f89406; }
 .label-success { background-color: #468847; }
-.label-info { background-color: #3a87ad; }/*
-.label:hover { color: #ffffff; text-decoration: none; }
-.label-important:hover { background-color: #953b39; }
-.label-warning:hover { background-color: #c67605; }
-.label-success:hover { background-color: #356635; }
-.label-info:hover { background-color: #2d6987; }*/
+.label-info { background-color: #3a87ad; }
 
 /* Progress */
 .progress {
