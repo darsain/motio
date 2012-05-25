@@ -22,17 +22,17 @@ $(selector).motio( [ options [, returnInstance ]] );
 
 Object with options. Properties:
 
-#### Shared options
+###### Shared options
 
 + **fps:** `Int` `default: 15` frames per second
 + **vertical:** `Bool` `default: 0` whether the images in sprite are positioned vertically instead of horizontally
 + **paused:** `Bool` `default: 0` whether to start animation paused
 
-#### Sprite animation specific options
+###### Sprite animation specific options
 
 + **frames:** `Int` `default: 0` number of frames in sprite - if this option remains `0`, it is considered that you are requesting panning animation type
 
-#### Panning animation specific options
+###### Panning animation specific options
 
 Panning is decided by **frames** option above. If you want to pan background, leave **frames** option at `0`.
 
