@@ -7,7 +7,7 @@ jQuery plugin for simple but powerful sprite based animations and panning.
 
 ## Calling
 
-Motio is called on an element representing animation container, where animation is delivered in CSS background image.
+Motio is called on an element representing animation container, where animation is delivered as a CSS background image.
 
 In sprite based animations, container should have the dimensions of one sprite frame.
 E.g, if you have 10 frames in a horizontal sprite that is 1000 x 100 pixels big, the container should be 100 x 100 pixels big.
@@ -15,7 +15,7 @@ E.g, if you have 10 frames in a horizontal sprite that is 1000 x 100 pixels big,
 In panning, container size doesn't play any role, just the background image should be seamless. Or not :), depending on what are you going for.
 
 ```js
-$(selector)( [ options [, returnInstance ]] );
+$(selector).motio( [ options [, returnInstance ]] );
 ```
 
 ### [ options ]
@@ -24,26 +24,26 @@ Object with options. Properties:
 
 #### Shared options
 
-**fps:** `Int` `default: 15` frames per second
-**vertical:** `Bool` `default: 0` whether the images in sprite are positioned vertically instead of horizontally
-**paused:** `Bool` `default: 0` whether to start animation paused
++ **fps:** `Int` `default: 15` frames per second
++ **vertical:** `Bool` `default: 0` whether the images in sprite are positioned vertically instead of horizontally
++ **paused:** `Bool` `default: 0` whether to start animation paused
 
 #### Sprite animation specific options
 
-**frames:** `Int` `default: 0` number of frames in sprite - if this option remains `0`, it is considered that you are requesting panning animation type
++ **frames:** `Int` `default: 0` number of frames in sprite - if this option remains `0`, it is considered that you are requesting panning animation type
 
 #### Panning animation specific options
 
 Panning is decided by **frames** option above. If you want to pan background, leave **frames** option at `0`.
 
-**speed:** `Int` `default: 50` panning speed in pixels per second
-**bgSize:** `Int` `default: 50` background size so motio could reset background position if it gets over this value. not required
++ **speed:** `Int` `default: 50` panning speed in pixels per second
++ **bgSize:** `Int` `default: 50` background size so motio could reset background position if it gets over this value. not required
 
 ### [ returnInstance ]
 
 Boolean argument requesting to return a plugin instance instead of a chainable jQuery object. You can than use all methods documented below directly on this instance.
 
-If motio is called on more than one element, it returns array of instances.
+If motio is called on more than one element, it returns an array of instances.
 
 #### Usage:
 
@@ -63,7 +63,7 @@ All methods can be called via `.motio()` call:
 $(selector).motio( methodName [, arguments, ... ] );
 ```
 
-Rr diractly via Motio instance:
+Or directly via Motio instance:
 
 ```js
 // Calling motio with `returnInstance = true`, and saving the instance
@@ -71,7 +71,7 @@ var motioInstance = $(selector).motio( options, true );
 motioInstance.methodName( [ arguments, ... ] );
 ```
 
-Reference to Motio instance is also saved in a frame data. You can retrieve it with:
+Reference to Motio instance is also saved in an element data storage. You can retrieve it with:
 
 ```js
 var motioInstance = $(selector).data('plugin_motio');
@@ -146,27 +146,33 @@ Animates the animation to the passed frame index. Doesn't work with panning anim
 
 ### on
 
+Only for jQuery **1.7**+.
+
 ```js
 $(selector).motio( 'on', eventName, function );
 ```
 
-Binds a callback function to one of the custom events trigger by motio. Only for jQuery **1.7**+.
+Binds a callback function to one of the custom events trigger by motio.
+
++ **eventName:** `String` name of a custom event to bind the function to
++ **function:** `Function` callback function
+
 If you are using older jQuery version, you can use the equivalent: `$(selector).bind('motio:eventName', fn);`.
 
-**eventName:** `String` name of a custom event to bind the function to
-**function:** `Function` callback function
-
 ### off
+
+Only for jQuery **1.7**+.
 
 ```js
 $(selector).motio( 'off', eventName [, function ] );
 ```
 
-Unbinds a callback function from one of the custom events trigger by motio. If no function is specified, it unbinds all callbacks. Only for jQuery **1.7**+.
-If you are using older jQuery version, you can use the equivalent: `$(selector).unbind('motio:eventName', fn);`.
+Unbinds a callback function from one of the custom events trigger by motio. If no function is specified, it unbinds all callbacks.
 
-**eventName:** `String` name of a custom event to unbind the function from
-**function:** `Function` callback function
++ **eventName:** `String` name of a custom event to unbind the function from
++ **function:** `Function` callback function
+
+If you are using older jQuery version, you can use the equivalent: `$(selector).unbind('motio:eventName', fn);`.
 
 ### destroy
 
