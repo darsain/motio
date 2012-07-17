@@ -1,5 +1,5 @@
 /*!
- * jQuery Motio v1.0.0
+ * jQuery Motio v1.0.1
  * https://github.com/Darsain/motio
  *
  * Licensed under the MIT license.
@@ -378,7 +378,7 @@
 			// Update background position
 			setPos( newpos );
 
-		};
+		}
 
 
 		/**
@@ -477,11 +477,11 @@
 	$.fn[pluginName] = function( options, returnInstance ){
 
 		var method = false,
-			instances = [],
-			methodArgs;
+			methodArgs,
+			instances = [];
 
 		// Basic attributes logic
-		if( options && !$.isPlainObject( options ) ){
+		if( typeof options !== 'undefined' && !$.isPlainObject( options ) ){
 			method = options === false ? 'destroy' : options;
 			methodArgs = arguments;
 			Array.prototype.shift.call( methodArgs );
