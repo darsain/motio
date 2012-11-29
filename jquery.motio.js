@@ -14,7 +14,8 @@
 
 	var pluginName = 'motio',
 		namespace = 'plugin_' + pluginName,
-		rAF;
+		cAF = window.cancelAnimationFrame || window.cancelRequestAnimationFrame,
+		rAF = window.requestAnimationFrame;
 
 	// Plugin "class"
 	function Plugin( frame, options ){
@@ -539,25 +540,29 @@
 
 
 	// local requestAnimationFrame polyfill
-	(function(){
+	(function (w) {
+		var vendors = ['ms', 'moz', 'webkit', 'o'],
+			lastTime = 0;
 
-		var lastTime = 0,
-			vendors = ['ms', 'moz', 'webkit', 'o'];
-
-		for( var x = 0; x < vendors.length && !rAF; ++x ){
-			rAF = window[vendors[x]+'RequestAnimationFrame'];
+		// For a more accurate WindowAnimationTiming interface implementation, ditch the native
+		// requestAnimationFrame when cancelAnimationFrame is not present (older versions of Firefox)
+		for(var x = 0; x < vendors.length && !cAF; ++x) {
+			cAF = w[vendors[x]+'CancelAnimationFrame'] || w[vendors[x]+'CancelRequestAnimationFrame'];
+			rAF = cAF && w[vendors[x]+'RequestAnimationFrame'];
 		}
 
-		if( !rAF ){
-			rAF = function( callback, element ){
-				var currTime = new Date().getTime(),
-					timeToCall = Math.max(0, 16 - ( currTime - lastTime ));
+		if (!cAF) {
+			rAF = function (callback) {
+				var currTime = +new Date(),
+					timeToCall = Math.max(0, 16 - (currTime - lastTime));
 				lastTime = currTime + timeToCall;
-				return setTimeout( function() { callback( currTime + timeToCall ); }, timeToCall );
+				return w.setTimeout(function () { callback(currTime + timeToCall); }, timeToCall);
+			};
+
+			cAF = function (id) {
+				clearTimeout(id);
 			};
 		}
-
-
-	}());
+	}(window));
 
 })(jQuery);
