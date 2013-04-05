@@ -114,7 +114,6 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.toggle = function () {
-			trigger('toggle');
 			self[frameID ? 'pause' : 'play']();
 			return self;
 		};
