@@ -514,8 +514,5 @@
 		speedY:   0, // Vertical panning speed in pixels per second.
 		bgWidth:  0, // Width of the background image (optional).
 		bgHeight: 0  // Height of the background image (optional).
-			// it is needed so the script will know when to reset the background position to 0, and thus not overflow the JavaScript 2^53 integer limit
-			// when 0 (=unknown), the position will iterate into ridiculous numbers, which will in a few million years result into a buggy animation ...
-			// you basically set this if you have OCD
 	};
 })(window);
