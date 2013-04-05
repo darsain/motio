@@ -128,8 +128,7 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.toStart = function (immediate, callback) {
-			self.to(0, immediate, callback);
-			return self;
+			return self.to(0, immediate, callback);
 		};
 
 		/**
@@ -141,8 +140,7 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.toEnd = function (immediate, callback) {
-			self.to(frames.length - 1, immediate, callback);
-			return self;
+			return self.to(frames.length - 1, immediate, callback);
 		};
 
 		/**
@@ -156,7 +154,7 @@
 		 */
 		self.to = function (frame, immediate, callback) {
 			if (isPan || !isNumber(frame) || frame < 0 || frame >= frames.length) {
-				return;
+				return self;
 			}
 
 			// Handle optional argument
@@ -176,7 +174,7 @@
 						callback.call(self);
 					}
 					self.pause();
-					return;
+					return self;
 				}
 			}
 
@@ -188,6 +186,8 @@
 
 			// Resume rendering if paused
 			resume();
+
+			return self;
 		};
 
 		/**
