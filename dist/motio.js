@@ -1,5 +1,5 @@
 /*!
- * Motio 2.0.0 - 5th Apr 2013
+ * Motio 2.0.1 - 5th Apr 2013
  * https://github.com/Darsain/motio
  *
  * Licensed under the MIT license.
@@ -121,7 +121,6 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.toggle = function () {
-			trigger('toggle');
 			self[frameID ? 'pause' : 'play']();
 			return self;
 		};
