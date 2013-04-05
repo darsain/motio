@@ -10,13 +10,13 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('component.json'),
 		meta: {
 			banner: '/*!\n' +
-				' * <%= pkg.name %> <%= pkg.version %> - <%= grunt.template.today("dS mmm yyyy") %>\n' +
+				' * <%= pkg.title %> <%= pkg.version %> - <%= grunt.template.today("dS mmm yyyy") %>\n' +
 				' * <%= pkg.homepage %>\n' +
 				' *\n' +
 				' * Licensed under the <%= pkg.licenses[0].type %> license.\n' +
 				' * <%= pkg.licenses[0].url %>\n' +
 				' */\n',
-			bannerLight: '/*! <%= pkg.name %> <%= pkg.version %>' +
+			bannerLight: '/*! <%= pkg.title %> <%= pkg.version %>' +
 				' - <%= grunt.template.today("dS mmm yyyy") %> | <%= pkg.homepage %> */'
 		},
 
