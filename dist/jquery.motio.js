@@ -135,8 +135,7 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.toStart = function (immediate, callback) {
-			self.to(0, immediate, callback);
-			return self;
+			return self.to(0, immediate, callback);
 		};
 
 		/**
@@ -148,8 +147,7 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.toEnd = function (immediate, callback) {
-			self.to(frames.length - 1, immediate, callback);
-			return self;
+			return self.to(frames.length - 1, immediate, callback);
 		};
 
 		/**
@@ -163,7 +161,7 @@
 		 */
 		self.to = function (frame, immediate, callback) {
 			if (isPan || !isNumber(frame) || frame < 0 || frame >= frames.length) {
-				return;
+				return self;
 			}
 
 			// Handle optional argument
@@ -183,7 +181,7 @@
 						callback.call(self);
 					}
 					self.pause();
-					return;
+					return self;
 				}
 			}
 
@@ -195,6 +193,8 @@
 
 			// Resume rendering if paused
 			resume();
+
+			return self;
 		};
 
 		/**
@@ -521,9 +521,6 @@
 		speedY:   0, // Vertical panning speed in pixels per second.
 		bgWidth:  0, // Width of the background image (optional).
 		bgHeight: 0  // Height of the background image (optional).
-			// it is needed so the script will know when to reset the background position to 0, and thus not overflow the JavaScript 2^53 integer limit
-			// when 0 (=unknown), the position will iterate into ridiculous numbers, which will in a few million years result into a buggy animation ...
-			// you basically set this if you have OCD
 	};
 })(window);
 /*global Motio */
