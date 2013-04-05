@@ -1,256 +1,35 @@
-# Motio
+# [Motio](http://darsa.in/motio)
 
-jQuery plugin for simple but powerful sprite based animations and panning.
+Small JavaScript library for simple but powerful sprite based animations and panning.
 
-[See the DEMO](http://darsain.github.com/motio)
+Motio takes an element and animates its background position to create an animation effect. All is super optimized for
+speed and chained to the requestAnimationFrame, with a polyfill for older browsers without it.
 
+That being said, animating the element background is not the fastest possible way how to do this (canvas solutions are
+a lot faster), but it is sure as hell the most simple one, and compatible with everything from IE6 and up.
 
-## Calling
+#### Dependencies
 
-Motio is called on an element representing animation container, where animation is delivered as a CSS background image.
+Motio has no dependencies, but there is an optional
+[Motio jQuery plugin extension](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.min.js) available.
 
-In sprite based animations, container should have the dimensions of one sprite frame.
-E.g, if you have 10 frames in a horizontal sprite that is 1000 x 100 pixels big, the container should be 100 x 100 pixels big.
+#### Compatibility
 
-In panning, container size doesn't play any role, just the background image should be seamless. Or not :), depending on what are you going for.
+Works everywhere.
 
-```js
-$(selector).motio( [ options [, returnInstance ]] );
-```
+### [Changelog](https://github.com/Darsain/motio/wiki/Changelog)
 
-### [ options ]
+Motio upholds the [Semantic Versioning Specification](http://semver.org/).
 
-Object with options. Properties:
+## Documentation
 
-###### Shared options
+- **[Markup](https://github.com/Darsain/motio/wiki/Markup)** - how should the HTML & CSS look like
+- **[Calling](https://github.com/Darsain/motio/wiki/Calling)** - how to call Motio
+- **[Options](https://github.com/Darsain/motio/wiki/Options)** - all available options
+- **[Properties](https://github.com/Darsain/motio/wiki/Properties)** - accessible Motio object properties
+- **[Methods](https://github.com/Darsain/motio/wiki/Methods)** - all available methods, and how to use them
+- **[Events](https://github.com/Darsain/motio/wiki/Events)** - all available events, and how to register callbacks
 
-+ **fps:** `Int` `default: 15` frames per second
-+ **vertical:** `Bool` `default: 0` whether the images in sprite are positioned vertically instead of horizontally
-+ **paused:** `Bool` `default: 0` whether to start animation paused
+## Contributing
 
-###### Sprite animation specific options
-
-+ **frames:** `Int` `default: 0` number of frames in sprite - if this option remains `0`, it is considered that you are requesting panning animation type
-
-###### Panning animation specific options
-
-Panning is decided by **frames** option above. If you want to pan background, leave **frames** option at `0`.
-
-+ **speed:** `Int` `default: 50` panning speed in pixels per second
-+ **bgSize:** `Int` `default: 50` background size so motio could reset background position if it gets over this value. not required
-
-### [ returnInstance ]
-
-Boolean argument requesting to return a plugin instance instead of a chainable jQuery object. You can than use all methods documented below directly on this instance.
-
-If motio is called on more than one element, it returns an array of instances.
-
-#### Usage:
-
-```js
-var bgPan = $('#bg').motio( options, true );
-
-bgPan.set( 'speed', 100 );
-bgPan.play();
-```
-
-
-## Methods
-
-All methods can be called via `.motio()` call:
-
-```js
-$(selector).motio( methodName [, arguments, ... ] );
-```
-
-Or directly via Motio instance:
-
-```js
-// Calling motio with `returnInstance = true`, and saving the instance
-var motioInstance = $(selector).motio( options, true );
-motioInstance.methodName( [ arguments, ... ] );
-```
-
-Reference to Motio instance is also saved in an element data storage. You can retrieve it with:
-
-```js
-var motioInstance = $(selector).data('plugin_motio');
-```
-
-
-### play
-
-```js
-$(selector).motio( 'play' );
-```
-
-Starts playing an animation when paused.
-
-### pause
-
-```js
-$(selector).motio( 'pause' );
-```
-
-Pauses a playing animation.
-
-### toggle
-
-```js
-$(selector).motio( 'toggle' );
-```
-
-Toggles between playing and paused states.
-
-### set
-
-```js
-$(selector).motio( 'set', property, value );
-```
-
-Updates one of the options. Only these options can be updates: **speed**, **fps**
-
-###### Arguments:
-
-+ **property:** `String` name of the property that should be updated
-+ **value:** `Mixed` new property value
-
-### toStart
-
-```js
-$(selector).motio( 'toStart' [, immediate ] );
-```
-
-Animates the animation to the start and than triggers pause. Doesn't work with panning animations.
-
-###### Arguments:
-
-+ **immediate:** `Bool` move to the start immediately without animation
-
-### toEnd
-
-```js
-$(selector).motio( 'toStart' [, immediate ] );
-```
-
-Animates the animation to the end and than triggers pause. Doesn't work with panning animations.
-
-###### Arguments:
-
-+ **immediate:** `Bool` move to the end immediately without animation
-
-### to
-
-```js
-$(selector).motio( 'to', frame [, immediate ] );
-```
-
-Animates the animation to the passed frame index. Doesn't work with panning animations.
-
-###### Arguments:
-
-+ **frame:** `Int` frame index starting at `0`
-+ **immediate:** `Bool` move to the end immediately without animation
-
-### on
-
-Only for jQuery **1.7**+.
-
-```js
-$(selector).motio( 'on', eventName, function );
-```
-
-Binds a callback function to one of the custom events trigger by motio.
-
-###### Arguments:
-
-+ **eventName:** `String` name of a custom event to bind the function to
-+ **function:** `Function` callback function
-
-If you are using older jQuery version, you can use the equivalent: `$(selector).bind('motio:eventName', fn);`.
-
-### off
-
-Only for jQuery **1.7**+.
-
-```js
-$(selector).motio( 'off', eventName [, function ] );
-```
-
-Unbinds a callback function from one of the custom events trigger by motio. If no function is specified, it unbinds all callbacks.
-
-###### Arguments:
-
-+ **eventName:** `String` name of a custom event to unbind the function from
-+ **function:** `Function` callback function
-
-If you are using older jQuery version, you can use the equivalent: `$(selector).unbind('motio:eventName', fn);`.
-
-### destroy
-
-```js
-$(selector).motio( 'destroy' );
-// or alias
-$(selector).motio( false );
-```
-
-Removes motio from elements.
-
-
-## Custom events
-
-Motio is triggering bunch of useful events. You can bind your callbacks to them in a few different ways:
-
-```js
-$(selector).motio( 'on', eventName, function );
-// or directly via Motio instance
-var motioInstance = $(selector).motio( options, true );
-motioInstance.on( eventName, function );
-// jQuery <1.7
-$(selector).bind( 'motio:eventName', function );
-```
-
-And similarly unbinding with:
-
-```js
-$(selector).motio( 'off', eventName, function );
-// or via instance
-motioInstance.off( eventName, function );
-// jQuery <1.7
-$(selector).unbind( 'motio:eventName', function );
-```
-
-Integrated Motio on/off methods are using jQuery $.Callbacks API, which is in jQuery sice **1.7**+.
-If you can't use newer versions of jQuery, you can go for jQuery bind/unbind methods called on a frame element, with 'motio:' prefix on all event names.
-
-### frame
-
-Triggered on each frame. Receives 2 arguments, which are based on an animation type.
-
-+ sprite - `function( activeFrameIndex, numberOfFrames ){ ... }` - active frame index starts at `0`
-+ panning - `function( currentPosition, backgroundSize ){ ... }` - `backgroundSize` is `0` if you haven't passed bgSize in options
-
-
-### start
-
-When **toStart** method has been called, this event is triggered when an animation arrives at the start and pauses itself.
-
-
-### end
-
-When **toEnd** method has been called, this event is triggered when an animation arrives at the end and pauses itself.
-
-
-### pause
-
-Triggered when animation is paused.
-
-
-### play
-
-Triggered when animation unpauses itself.
-
-
-### toggle
-
-Triggered when toggle method is called.
+Please, read the [Contributing Guidelines](CONTRIBUTING.md) for this project.
