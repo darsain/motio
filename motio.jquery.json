@@ -1,0 +1,28 @@
+{
+	"name": "motio",
+	"title": "Motio",
+	"description": "Sprite based animations and panning.",
+	"version": "2.0.0",
+	"keywords": [
+		"sprite",
+		"panning",
+		"animation"
+	],
+	"author": {
+		"name": "Darsain",
+		"url": "http://darsa.in"
+	},
+	"bugs": "https://github.com/Darsain/motio/issues",
+	"homepage": "http://darsa.in/motio",
+	"docs": "https://github.com/Darsain/motio/wiki",
+	"download": "https://raw.github.com/Darsain/motio/master/dist/jquery.motio.min.js",
+	"dependencies": {
+		"jquery": ">=1.7"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	]
+}
