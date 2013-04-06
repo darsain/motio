@@ -96,7 +96,6 @@ module.exports = function(grunt) {
 
 	// Build task.
 	grunt.registerTask('build', function () {
-		grunt.task.run('jshint');
 		grunt.task.run('clean');
 		grunt.task.run('concat');
 		grunt.task.run('gcc');
@@ -105,8 +104,9 @@ module.exports = function(grunt) {
 	// Release task.
 	grunt.registerTask('release', function (type) {
 		type = type ? type : 'patch';
-		grunt.task.run('build');
+		grunt.task.run('jshint');
 		grunt.task.run('bumpup:' + type);
+		grunt.task.run('build');
 		grunt.task.run('tagrelease');
 	});
 
