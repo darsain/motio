@@ -103,27 +103,76 @@
 			</ul>
 			<div class="tab-content examples">
 				<div class="tab-pane active" id="panning">
-					<div class="frame">
-						<div class="panning"></div>
+					<div class="example">
+						<div class="frame panning"></div>
 					</div>
 
-					<pre><code data-language="javascript"></code></pre>
+					<p>Move cursor over the example to control the panning direction and speed.</p>
+
+					<pre><code data-language="javascript">var $example = $(&#039;#panning .example&#039;);
+var frame = $example.find(&#039;.frame&#039;)[0];
+var offset = $example.offset();
+var motio = new Motio(frame, {
+	fps: 60,
+	bgWidth: 1024,
+	bgHeight: 1024
+});
+
+// Play/Pause when mouse enters/leaves the frame
+$example.on(&#039;mouseenter mouseleave&#039;, function (event) {
+	if (event.type === &#039;mouseenter&#039;) {
+		motio.play();
+	} else {
+		motio.pause();
+	}
+});
+
+// Update the animation speed &amp; direction based on a cursor position
+$example.on(&#039;mousemove&#039;, function (event) {
+	motio.set(&#039;speedX&#039;, event.pageX - offset.left - motio.width / 2);
+	motio.set(&#039;speedY&#039;, event.pageY - offset.top - motio.height / 2);
+});</code></pre>
 				</div>
 
 				<div class="tab-pane" id="sprite">
-					<div class="frame">
-						<div class="sprite"></div>
+					<div class="example">
+						<div class="frame sprite"></div>
 					</div>
 
-					<pre><code data-language="javascript"></code></pre>
+					<p>Mouse over the example to play, and mouse out to pause the sprite animation. Sprite image <del>stolen</del> borrowed from <a href="http://kofaniv.snkplaymore.co.jp/english/info/15th_anniv/2d_dot/gallery/character/index.php">kofaniv.snkplaymore.co.jp</a>.</p>
+
+					<pre><code data-language="javascript">var $example = $(&#039;#sprite .example&#039;);
+var frame = $example.find(&#039;.frame&#039;)[0];
+var motio = new Motio(frame, {
+	fps: 10,
+	frames: 14
+});
+
+// Play when mouse enters the frame, and pause when it leaves
+$example.on(&#039;mouseenter mouseleave&#039;, function (event) {
+	motio[event.type === &#039;mouseenter&#039; ? &#039;play&#039; : &#039;pause&#039;]();
+});</code></pre>
 				</div>
 
 				<div class="tab-pane" id="circview">
-					<div class="frame">
-						<div class="circview"></div>
+					<div class="example">
+						<div class="frame circview"></div>
 					</div>
 
-					<pre><code data-language="javascript"></code></pre>
+					<p>Mouse over the example, and move mouse from right to left to view different angles. Sprite image <del>stolen</del> borrowed from <a href="http://jbkflex.wordpress.com/">jbkflex.wordpress.com</a>.</p>
+
+					<pre><code data-language="javascript">var $example = $(&#039;#circview .example&#039;);
+var exampleLeft = $example.offset().left;
+var exampleWidth = $example.width();
+var frame = $example.find(&#039;.frame&#039;)[0];
+var motio = new Motio(frame, {
+	frames: 18
+});
+
+// Activate frame based on the cursor position
+$example.on(&#039;mousemove&#039;, function (event) {
+	motio.to(Math.floor(motio.frames / exampleWidth * (event.pageX - exampleLeft)), true);
+});</code></pre>
 				</div>
 			</div>
 		</section>
