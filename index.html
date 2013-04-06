@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Motio</title>
+	<meta name="description" content="Small JavaScript library for simple but powerful sprite based animations and panning.">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/ospb.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr.js"></script>
+</head>
+<body data-repo="Darsain/motio" data-metafile="component.json">
+	<!--[if lt IE 9]>
+		<p class="chromeframe"><i class="icon-warning-sign icon-large"></i> You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience. <i class="icon-warning-sign icon-large"></i></p>
+	<![endif]-->
+
+	<header class="projecttitle">
+		<div class="titlewrap">
+			<h1 class="projectname">Motio</h1>
+			<a href="https://twitter.com/Darsain" class="follow"><i class="icon-twitter icon-large"></i> Follow for updates</a>
+		</div>
+		<p class="projectdescription">Small JavaScript library for sprite based animations and panning</p>
+	</header>
+
+	<div class="download pagespan" id="download" data-point="download" data-title="Download" data-active-when="down">
+		<h2>Download <small>latest stable</small></h2>
+		<h3 id="version"><span class="loading">loading <i class="icon-refresh icon-large icon-spin"></i></span></h3>
+
+		<a href="https://github.com/Darsain/motio/raw/master/dist/motio.min.js" data-tooltip="1.5KB gzipped" data-style="light">
+			<span class="title">Production</span> <span class="size">3 KB</span>
+		</a>
+		<a href="https://github.com/Darsain/motio/raw/master/dist/motio.js">
+			<span class="title">Development</span> <span class="size">12 KB</span>
+		</a>
+		<a href="https://github.com/Darsain/motio" class="repo" id="repo">
+			<i class="icon-github"></i>
+			<span class="title">Repository</span>
+			<span class="loading"><i class="icon-refresh icon-large icon-spin"></i> loading</span>
+		</a>
+	</div>
+	<div class="download-border pagespan"></div>
+
+	<div id="content" class="content pagespan">
+
+		<nav id="mainnav" class="mainnav"></nav>
+
+		<section data-point="introduction" data-title="Introduction">
+			<h2>Introduction</h2>
+
+			<p>Sly is a small JavaScript library for simple but powerful sprite based animations and panning.</p>
+
+			<p>Motio takes an element, and moves its background position to create an animation effect.</p>
+
+			<h3>Dependencies</h3>
+
+			<p>Motio has no dependencies, but there is an optional <a href="#!jquery">Motio jQuery plugin</a> version available.</p>
+
+			<h3>Compatibility</h3>
+
+			<p>Works everywhere.</p>
+
+			<h3><a href="https://github.com/Darsain/motio/wiki/Changelog">Changelog</a></h3>
+
+			<p>Motio upholds the <a href="http://semver.org">Semantic Versioning Specification</a>.</p>
+		</section>
+
+		<section data-point="jquery" data-title="jQuery plugin">
+			<h2>jQuery plugin</h2>
+
+			<p>If you consider jQuery to be a separate language and are not interested in learning JavaScript, you can use the jQuery plugin version of Motio:</p>
+
+			<ul class="grid">
+				<li><a href="https://github.com/Darsain/motio/raw/master/dist/jquery.motio.min.js"><i class="icon-download-alt"></i> Production 3.7KB</a></li>
+				<li><a href="https://github.com/Darsain/motio/raw/master/dist/jquery.motio.js"><i class="icon-download-alt"></i> Development 13KB</a></li>
+			</ul>
+
+			<p>Working with Motio via a jQuery proxy has some limitations. You can't access Motio properties and receive values returned by methods, which takes away a lot of control. But if all you want is to trigger a background panning on an element and forget about it, jQuery proxy is the simplest way how to do it.</p>
+		</section>
+
+		<section data-point="performance" data-title="Performance">
+			<h2>Performance</h2>
+
+			<p>Motio is chained to the requestAnimationFrame (with a polyfill for older browsers) and optimized for speed and garbage collection. What Motio does, cannot be done faster.</p>
+
+			<p>That being said, animating the element background is not the fastest possible way how to do this kind of animations (canvas solutions are faster), but it is sure as hell the most simple one, and compatible with everything from IE6 and up.</p>
+		</section>
+
+		<section data-point="examples" data-title="Examples">
+			<h2>Examples</h2>
+
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#panning" data-toggle="tab">Panning</a></li>
+				<li><a href="#sprite" data-toggle="tab">Sprite</a></li>
+				<li><a href="#circview" data-toggle="tab">360 view</a></li>
+			</ul>
+			<div class="tab-content examples">
+				<div class="tab-pane active" id="panning">
+					<div class="frame">
+						<div class="panning"></div>
+					</div>
+
+					<pre><code data-language="javascript"></code></pre>
+				</div>
+
+				<div class="tab-pane" id="sprite">
+					<div class="frame">
+						<div class="sprite"></div>
+					</div>
+
+					<pre><code data-language="javascript"></code></pre>
+				</div>
+
+				<div class="tab-pane" id="circview">
+					<div class="frame">
+						<div class="circview"></div>
+					</div>
+
+					<pre><code data-language="javascript"></code></pre>
+				</div>
+			</div>
+		</section>
+
+		<section data-point="documentation" data-title="Documentation">
+			<h2>Documentation</h2>
+
+			<p>Documentation is centralized in the <a href="https://github.com/Darsain/motio/wiki">Motio's Repository Wiki</a>, which makes it way easier to maintain and keep always up to date.</p>
+
+			<ul class="grid">
+				<li><a href="https://github.com/Darsain/motio/wiki/Markup"><i class="icon-book icon-large"></i> Markup <small>HTML &amp; CSS</small></a></li>
+				<li><a href="https://github.com/Darsain/motio/wiki/Calling"><i class="icon-book icon-large"></i> Calling</a></li>
+				<li><a href="https://github.com/Darsain/motio/wiki/Options"><i class="icon-book icon-large"></i> Options</a></li>
+				<li><a href="https://github.com/Darsain/motio/wiki/Properties"><i class="icon-book icon-large"></i> Properties</a></li>
+				<li><a href="https://github.com/Darsain/motio/wiki/Methods"><i class="icon-book icon-large"></i> Methods</a></li>
+				<li><a href="https://github.com/Darsain/motio/wiki/Events"><i class="icon-book icon-large"></i> Events</a></li>
+			</ul>
+		</section>
+	</div>
+
+	<footer class="pagespan" data-point="license" data-title="License">
+		<a id="license" class="license">
+			<i class="icon-refresh icon-spin"></i> Loading license <i class="icon-refresh icon-spin"></i>
+		</a>
+
+		<div id="repos" class="repos" data-display="sly,espy,imagesLoaded,fpsmeter">
+			<i class="icon-refresh icon-large icon-spin"></i>
+			<h6>Loading other projects</h6>
+		</div>
+	</footer>
+
+	<!-- Templates -->
+	<script type="text/tim" class="version">
+		{{version}}  <small>{{date}}</small>
+	</script>
+
+	<script type="text/tim" class="watchers">
+		<span class="size">{{watchers}} <small>watchers</small></span>
+	</script>
+
+	<script type="text/tim" class="license">
+		<span class="fl">{{license}}</span>
+		<span class="fr">{{license}}</span>
+		Lincensed under the <strong>{{license}}</strong> license
+	</script>
+
+	<script type="text/tim" class="repos">
+		<ul class="clearfix">
+			{{items}}
+				<li>
+					<a href="{{url}}">
+						<h4>{{name}}</h4>
+						<span class="watchers"><i class="icon-star"></i> {{watchers}}</span>
+						<p>{{description}}</p>
+					</a>
+				</li>
+			{{/items}}
+		</ul>
+	</script>
+
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="js/vendor/plugins.js"></script>
+	<script src="js/ospb.js"></script>
+	<script src="js/motio.min.js"></script>
+	<script src="js/main.js"></script>
+
+	<!-- Google Analytics -->
+	<script>
+		var _gaq=[['_setAccount','UA-838758-7'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* Header style */
+header.projecttitle { margin: 0 auto; padding: 115px 0; color: #fff; text-shadow: 1px 1px 0 rgba(0,0,0,.3); background: url('../img/clouds.jpg') #679eba; }
+header .projectname { text-shadow: 2px 2px 0 rgba(0,0,0,.3); }
+header .projectdescription { opacity: 1; }
+.download { margin-top: -45px; }
+
+/* Color theme */
+a,
+ul.grid li a,
+.download a:hover,
+.repos ul li a:hover { color: #9bbf77; }
+
+.chromeframe,
+.download a,
+ul.grid li a:hover,
+.mainnav ul li.active a,
+.license:hover { background: #a5cc7e; }
+
+.download a.repo:before { border-left-color: #a5cc7e; }
+.mainnav ul li.active a:before { border-right-color: #a5cc7e; }
+.license:hover:before { border-right-color: #a5cc7e; }
+.license:hover:after { border-left-color: #a5cc7e; }
+
+/* Examples */
+.examples .frame { width: 300px; height: 300px; float: left; background: #363840; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2); }
+.examples .panning { width: 100%; height: 100%; background: url('../img/clouds.jpg') #679eba; box-shadow: inherit; }
+.examples .sprite { margin: 25px 0 0 25px; width: 250px; height: 250px; background: url('../img/ash_crimson_kiss.gif'); }
+.examples pre { margin-left: 320px; }
