@@ -1,5 +1,5 @@
 /*!
- * Motio 2.0.1 - 5th Apr 2013
+ * Motio 2.1.0 - 6th Apr 2013
  * https://github.com/Darsain/motio
  *
  * Licensed under the MIT license.
@@ -58,13 +58,11 @@
 		var callbacks = {};
 		var animation = {};
 		var active = 0;
-		var width = frame.clientWidth;
-		var height = frame.clientHeight;
 		var pos, bgPos, lastPos, frameID, renderID, i, l;
 
 		// Exposed properties
-		self.width = width;
-		self.height = height;
+		self.width = o.width || frame.clientWidth;
+		self.height = o.height || frame.clientHeight;
 		self.options = o;
 		self.isPaused = 1;
 
@@ -439,9 +437,9 @@
 				frames.length = 0;
 				for (var i = 0; i < o.frames; i++) {
 					if (o.vertical) {
-						pos.y = i * -height;
+						pos.y = i * -self.height;
 					} else {
-						pos.x = i * -width;
+						pos.x = i * -self.width;
 					}
 					frames.push(pos.x + 'px ' + pos.y + 'px');
 				}
@@ -514,6 +512,8 @@
 		// Sprite animation specific options
 		frames:   0, // Number of frames in sprite.
 		vertical: 0, // Tells Motio that you are using vertically stacked sprite image.
+		width:    0, // Set the frame width manually (optional).
+		height:   0, // Set the frame height manually (optional).
 
 		// Panning specific options
 		speedX:   0, // Horizontal panning speed in pixels per second.
