@@ -32,7 +32,7 @@ jQuery(function ($) {
 		var frame = $example.find('.frame')[0];
 		var offset = $example.offset();
 		var motio = new Motio(frame, {
-			fps: 60,
+			fps: 30,
 			bgWidth: 1024,
 			bgHeight: 1024
 		});
