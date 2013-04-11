@@ -100,6 +100,7 @@
 				<li class="active"><a href="#panning" data-toggle="tab">Panning</a></li>
 				<li><a href="#sprite" data-toggle="tab">Sprite</a></li>
 				<li><a href="#circview" data-toggle="tab">360 view</a></li>
+				<li><a href="#game" data-toggle="tab">Extreme spriting</a></li>
 			</ul>
 			<div class="tab-content examples">
 				<div class="tab-pane active" id="panning">
@@ -173,6 +174,27 @@ var motio = new Motio(frame, {
 $example.on(&#039;mousemove&#039;, function (event) {
 	motio.to(Math.floor(motio.frames / exampleWidth * (event.pageX - exampleLeft)), true);
 });</code></pre>
+				</div>
+
+				<div class="tab-pane" id="game">
+
+					<div class="frame game">
+						<div class="char">
+							<div class="stand"></div>
+							<div class="stand_left"></div>
+							<div class="run"></div>
+							<div class="run_left"></div>
+							<div class="jump"></div>
+							<div class="jump_left"></div>
+							<div class="kick"></div>
+							<div class="kick_left"></div>
+						</div>
+
+						<div class="overlay"></div>
+						<div class="keys text-center"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> <kbd>Space</kbd> <kbd>B</kbd></div>
+					</div>
+
+					<p>Sprites are from <a href="http://spriters-resource.com/arcade/prettysoldiersailormoon/">spriters-resource.com</a>. No example code here, because it is dirty, dumb, and on top of that adapted from older vrsion of Motio. Please ignore it, this is just me goofing around. And you shouldn't be doing games with HTML elements anyway :)</p>
 				</div>
 			</div>
 		</section>

@@ -8,21 +8,41 @@ header .projectdescription { opacity: 1; }
 a,
 ul.grid li a,
 .download a:hover,
-.repos ul li a:hover { color: #9bbf77; }
+.repos ul li a:hover { color: #95b378; }
 
 .chromeframe,
 .download a,
 ul.grid li a:hover,
 .mainnav ul li.active a,
-.license:hover { background: #a5cc7e; }
+.license:hover { background: #aacc89; }
 
-.download a.repo:before { border-left-color: #a5cc7e; }
-.mainnav ul li.active a:before { border-right-color: #a5cc7e; }
-.license:hover:before { border-right-color: #a5cc7e; }
-.license:hover:after { border-left-color: #a5cc7e; }
+.download a.repo:before { border-left-color: #aacc89; }
+.mainnav ul li.active a:before { border-right-color: #aacc89; }
+.license:hover:before { border-right-color: #aacc89; }
+.license:hover:after { border-left-color: #aacc89; }
 
 /* Examples */
 .examples .example { height: 300px; margin-bottom: 25px; background: #363840; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2); }
 .examples .panning { width: 100%; height: 100%; background: url('../img/clouds.jpg') #679eba; box-shadow: inherit; }
 .examples .sprite { position: relative; left: 50%; top: 25px; margin-left: -125px; width: 250px; height: 250px; background: url('../img/ash_crimson_kiss.gif'); }
 .examples .circview { position: relative; left: 50%; top: 50px; margin-left: -120px; width: 240px; height: 200px; background-image: url('../img/car.gif'); }
+
+/* Game example */
+.game { position: relative; margin-bottom: 25px; height: 240px; background: url('../img/gamebg.png') no-repeat center 0; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2); }
+.game div { position: absolute; }
+
+.game .char { width: 120px; height: 150px; left: 410px; bottom: 0; }
+.game .char div { width: 100%; height: 100%; background: url('../img/sailormars.gif') no-repeat left top; }
+.game .char .stand { background-position: 0 0; }
+.game .char .stand_left { background-position: 0 -150px; }
+.game .char .run { background-position: 0 -300px; }
+.game .char .run_left { background-position: 0 -450px; }
+.game .char .jump { background-position: 0 -600px; }
+.game .char .jump_left { background-position: 0 -750px; }
+.game .char .kick { background-position: 0 -900px; }
+.game .char .kick_left { background-position: 0 -1050px; }
+
+.game .overlay { width: 100%; height: 100%; left: 0; top: 0; bottom: 0; right: 0; z-index: 2;
+	background: url('../img/gamebg.png') no-repeat center -240px;
+}
+.game .keys { top: 15px; left: 50%; margin-left: -90px; padding: 5px 7px 7px; background: #444; background: rgba(0,0,0,.6); border-radius: 3px; }
