@@ -87,6 +87,7 @@
 		self.play = function (reversed) {
 			animation.finite = 0;
 			animation.callback = 0;
+			animation.immediate = 0;
 			resume(reversed);
 			return self;
 		};
