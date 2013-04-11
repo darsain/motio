@@ -29,15 +29,15 @@ Bower:
 bower install motio
 ```
 
-Or manually download and handle the latest stable release:
+Or manually download the latest stable release:
 
-- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/motio.min.js)
-- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/motio.js)
+- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/motio.min.js) - 3KB, 1.6KB gzipped
+- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/motio.js) - 12KB
 
 jQuery plugin version:
 
-- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.min.js)
-- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.js)
+- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.min.js) - 3.7KB, 1.8KB gzipped
+- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.js) - 13.5KB
 
 ## Documentation
 
