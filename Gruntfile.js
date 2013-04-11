@@ -73,8 +73,8 @@ module.exports = function(grunt) {
 				dest: 'dist/<%= pkg.name %>.min.js.gz'
 			},
 			jquery: {
-				src: 'dist/<%= pkg.name %>.jquery.min.js',
-				dest: 'dist/<%= pkg.name %>.jquery.min.js.gz'
+				src: 'dist/jquery.<%= pkg.name %>.min.js',
+				dest: 'dist/jquery.<%= pkg.name %>.min.js.gz'
 			}
 		},
 
