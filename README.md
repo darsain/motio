@@ -21,6 +21,24 @@ Works everywhere.
 
 Motio upholds the [Semantic Versioning Specification](http://semver.org/).
 
+## Installation
+
+Bower:
+
+```shell
+bower install motio
+```
+
+Or manually download and handle the latest stable release:
+
+- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/motio.min.js)
+- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/motio.js)
+
+jQuery plugin version:
+
+- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.min.js)
+- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.js)
+
 ## Documentation
 
 - **[Markup](https://github.com/Darsain/motio/wiki/Markup)** - how should the HTML & CSS look like
