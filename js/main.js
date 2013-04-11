@@ -97,8 +97,8 @@ jQuery(function ($) {
 	// Extreme spriting - minigame
 	// This is really dumb, and on top of that adapted from older version of Motio, so please ignore.
 	$('a[data-toggle="tab"][href=#game]').one('shown', function () {
-		var $game = $('#game .frame'); console.log($game);
-		var pos = 400;
+		var $game = $('#game .frame');
+		var pos = 350;
 		var $char = $game.find('.char').css({ left: pos + 'px' });
 		var posMax = $game.innerWidth() - $char.innerWidth();
 		var facing = 'right';
@@ -131,8 +131,6 @@ jQuery(function ($) {
 		// Start with standing animation
 		mations[facing].stand.show().motio('play');
 
-		// On actions end
-		// $mations.not('.stand,.stand_left,.run,.run_left').motio('on', 'end', function () {
 		// Resets the stance back to running or standing after actions like kick
 		function resetStance() {
 			/*jshint validthis:true */
