@@ -1,5 +1,5 @@
 /*!
- * Motio 2.1.0 - 6th Apr 2013
+ * Motio 2.2.0 - 11th Apr 2013
  * https://github.com/Darsain/motio
  *
  * Licensed under the MIT license.
@@ -43,11 +43,11 @@
 	 *
 	 * @class
 	 *
-	 * @param {Element} frame       DOM element of sly container.
+	 * @param {Element} element       DOM element with animation background.
 	 * @param {Object}  options     Object with plugin options.
 	 * @param {Object}  callbackMap Callbacks map.
 	 */
-	function Motio(frame, options) {
+	function Motio(element, options) {
 		// Options
 		var o = defaults(options);
 
@@ -61,8 +61,9 @@
 		var pos, bgPos, lastPos, frameID, renderID, i, l;
 
 		// Exposed properties
-		self.width = o.width || frame.clientWidth;
-		self.height = o.height || frame.clientHeight;
+		self.element = element;
+		self.width = o.width || element.clientWidth;
+		self.height = o.height || element.clientHeight;
 		self.options = o;
 		self.isPaused = 1;
 
@@ -93,6 +94,7 @@
 		self.play = function (reversed) {
 			animation.finite = 0;
 			animation.callback = 0;
+			animation.immediate = 0;
 			resume(reversed);
 			return self;
 		};
@@ -247,7 +249,7 @@
 			// Update the position only when there is a change
 			// to not cause redundant reflows & repaints
 			if (bgPos !== lastPos) {
-				frame.style.backgroundPosition = lastPos = bgPos;
+				element.style.backgroundPosition = lastPos = bgPos;
 			}
 
 			// Trigger frame event
@@ -404,7 +406,7 @@
 		 * @return {String}
 		 */
 		function getProp(name) {
-			return w.getComputedStyle ? w.getComputedStyle(frame, null)[name] : frame.currentStyle[name];
+			return w.getComputedStyle ? w.getComputedStyle(element, null)[name] : element.currentStyle[name];
 		}
 
 		/**
@@ -414,7 +416,7 @@
 		 */
 		self.destroy = function () {
 			self.pause();
-			frame.style.backgroundPosition = '';
+			element.style.backgroundPosition = '';
 			return self;
 		};
 
