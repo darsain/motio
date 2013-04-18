@@ -1,5 +1,5 @@
 /*!
- * Motio 2.2.0 - 11th Apr 2013
+ * Motio 2.2.1 - 18th Apr 2013
  * https://github.com/Darsain/motio
  *
  * Licensed under the MIT license.
@@ -65,7 +65,7 @@
 		self.width = o.width || element.clientWidth;
 		self.height = o.height || element.clientHeight;
 		self.options = o;
-		self.isPaused = 1;
+		self.isPaused = true;
 
 		/**
 		 * Pause animation.
@@ -73,12 +73,12 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.pause = function () {
-			if (frameID) {
-				self.isPaused = 1;
-				// frameID can be timeout, or animationFrame ID
-				cAF(frameID);
-				frameID = clearTimeout(frameID);
-				renderID = cAF(renderID);
+			// frameID can be timeout, or animationFrame ID
+			cAF(frameID);
+			clearTimeout(frameID);
+			frameID = 0;
+			if (!self.isPaused) {
+				self.isPaused = true;
 				trigger('pause');
 			}
 			return self;
@@ -92,9 +92,9 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.play = function (reversed) {
-			animation.finite = 0;
-			animation.callback = 0;
-			animation.immediate = 0;
+			animation.finite = false;
+			animation.callback = undefined;
+			animation.immediate = false;
 			resume(reversed);
 			return self;
 		};
@@ -109,7 +109,7 @@
 		function resume(reversed) {
 			animation.reversed = reversed;
 			if (!frameID) {
-				self.isPaused = 0;
+				self.isPaused = false;
 				trigger('play');
 				requestRender();
 			}
@@ -185,9 +185,9 @@
 			}
 
 			// Update animation object
-			animation.finite = 1;
+			animation.finite = true;
 			animation.to = frame;
-			animation.immediate = immediate;
+			animation.immediate = !!immediate;
 			animation.callback = callback;
 
 			// Resume rendering if paused
@@ -271,14 +271,16 @@
 		 */
 		function requestRender() {
 			if (!(animation.finite && animation.to === active)) {
-				positionTick();
-				if (!animation.immediate) {
+				if (animation.immediate) {
+					frameID = 0;
+				} else {
 					if (o.fps >= 60) {
 						frameID = rAF(requestRender);
 					} else {
 						frameID = setTimeout(requestRender, 1000 / o.fps);
 					}
 				}
+				positionTick();
 				if (!renderID) {
 					renderID = rAF(render);
 				}
