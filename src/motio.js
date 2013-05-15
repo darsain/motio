@@ -458,7 +458,15 @@
 	 * @return {String}
 	 */
 	function type(value) {
-		return Object.prototype.toString.call(value).match(/\s([a-z]+)/i)[1].toLowerCase();
+		if (value == null) {
+			return String(value);
+		}
+		if (typeof value === 'object' || typeof value === 'function') {
+			return (value instanceof w.NodeList && 'nodelist') ||
+				(value instanceof w.HTMLCollection && 'htmlcollection') ||
+				Object.prototype.toString.call(value).match(/\s([a-z]+)/i)[1].toLowerCase();
+		}
+		return typeof value;
 	}
 
 	/**
