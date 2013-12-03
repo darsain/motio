@@ -11,13 +11,13 @@ a lot faster), but it is sure as hell the most simple one, and compatible with e
 #### Dependencies
 
 Motio has no dependencies, but there is an optional
-[Motio jQuery plugin extension](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.min.js) available.
+[Motio jQuery plugin extension](https://raw.github.com/darsain/motio/master/dist/jquery.motio.min.js) available.
 
 #### Compatibility
 
 Works everywhere.
 
-### [Changelog](https://github.com/Darsain/motio/wiki/Changelog)
+### [Changelog](https://github.com/darsain/motio/wiki/Changelog)
 
 Motio upholds the [Semantic Versioning Specification](http://semver.org/).
 
@@ -31,22 +31,22 @@ bower install motio
 
 Or manually download the latest stable release:
 
-- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/motio.min.js) - 3KB, 1.6KB gzipped
-- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/motio.js) - 12KB
+- [Production (minified)](https://raw.github.com/darsain/motio/master/dist/motio.min.js) - 3KB, 1.6KB gzipped
+- [Development (full source)](https://raw.github.com/darsain/motio/master/dist/motio.js) - 12KB
 
 jQuery plugin version:
 
-- [Production (minified)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.min.js) - 3.7KB, 1.8KB gzipped
-- [Development (full source)](https://raw.github.com/Darsain/motio/master/dist/jquery.motio.js) - 13.5KB
+- [Production (minified)](https://raw.github.com/darsain/motio/master/dist/jquery.motio.min.js) - 3.7KB, 1.8KB gzipped
+- [Development (full source)](https://raw.github.com/darsain/motio/master/dist/jquery.motio.js) - 13.5KB
 
 ## Documentation
 
-- **[Markup](https://github.com/Darsain/motio/wiki/Markup)** - how should the HTML & CSS look like
-- **[Calling](https://github.com/Darsain/motio/wiki/Calling)** - how to call Motio
-- **[Options](https://github.com/Darsain/motio/wiki/Options)** - all available options
-- **[Properties](https://github.com/Darsain/motio/wiki/Properties)** - accessible Motio object properties
-- **[Methods](https://github.com/Darsain/motio/wiki/Methods)** - all available methods, and how to use them
-- **[Events](https://github.com/Darsain/motio/wiki/Events)** - all available events, and how to register callbacks
+- **[Markup](https://github.com/darsain/motio/wiki/Markup)** - how should the HTML & CSS look like
+- **[Calling](https://github.com/darsain/motio/wiki/Calling)** - how to call Motio
+- **[Options](https://github.com/darsain/motio/wiki/Options)** - all available options
+- **[Properties](https://github.com/darsain/motio/wiki/Properties)** - accessible Motio object properties
+- **[Methods](https://github.com/darsain/motio/wiki/Methods)** - all available methods, and how to use them
+- **[Events](https://github.com/darsain/motio/wiki/Events)** - all available events, and how to register callbacks
 
 ## Contributing
 

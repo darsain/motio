@@ -4,12 +4,20 @@
 	"description": "Sprite based animations and panning.",
 	"version": "2.2.1",
 	"date": "2013-04-18 17:37:40 +00:00",
-	"homepage": "https://github.com/Darsain/motio",
+	"homepage": "https://github.com/darsain/motio",
 	"main": "./dist/motio.js",
-	"bugs": "https://github.com/Darsain/motio/issues",
+	"ignore": [
+		".editorconfig",
+		".jshintrc",
+		"CONTRIBUTING.md",
+		"Gruntfile.js",
+		"package.json",
+		"src"
+	],
+	"bugs": "https://github.com/darsain/motio/issues",
 	"repository": {
 		"type": "git",
-		"url": "http://github.com/Darsain/motio.git"
+		"url": "http://github.com/darsain/motio.git"
 	},
 	"licenses": [
 		{
