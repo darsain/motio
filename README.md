@@ -21,23 +21,21 @@ Works everywhere.
 
 Motio upholds the [Semantic Versioning Specification](http://semver.org/).
 
-## Installation
+## Download
 
-You can install with [Bower](http://twitter.github.io/bower):
+Latest stable release:
 
-```shell
-bower install motio
-```
-
-Or manually download the latest stable release:
-
-- [Production (minified)](https://raw.github.com/darsain/motio/master/dist/motio.min.js) - 3KB, 1.6KB gzipped
-- [Development (full source)](https://raw.github.com/darsain/motio/master/dist/motio.js) - 12KB
+- [Production `motio.min.js`](https://raw.github.com/darsain/motio/master/dist/motio.min.js) - 3KB, 1.6KB gzipped
+- [Development `motio.js`](https://raw.github.com/darsain/motio/master/dist/motio.js) - 12KB
 
 jQuery plugin version:
 
-- [Production (minified)](https://raw.github.com/darsain/motio/master/dist/jquery.motio.min.js) - 3.7KB, 1.8KB gzipped
-- [Development (full source)](https://raw.github.com/darsain/motio/master/dist/jquery.motio.js) - 13.5KB
+- [Production `jquery.motio.min.js`](https://raw.github.com/darsain/motio/master/dist/jquery.motio.min.js) - 3.7KB, 1.8KB gzipped
+- [Development `jquery.motio.js`](https://raw.github.com/darsain/motio/master/dist/jquery.motio.js) - 13.5KB
+
+When isolating issues on jsfiddle, you can use this URL:
+
+- [http://darsain.github.io/motio/js/motio.min.js](http://darsain.github.io/motio/js/motio.min.js)
 
 ## Documentation
 
