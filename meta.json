@@ -6,7 +6,8 @@
 	"bugs": "https://github.com/darsain/motio/issues",
 	"repository": {
 		"type": "git",
-		"url": "http://github.com/darsain/motio.git"
+		"url": "https://github.com/darsain/motio.git",
+		"homepage": "https://github.com/darsain/motio"
 	},
 	"licenses": [
 		{
