@@ -51,7 +51,7 @@
 		var callbacks = {};
 		var animation = {};
 		var active = 0;
-		var pos, bgPos, lastPos, frameID, renderID, i, l;
+		var pos, bgPos, lastPos, frameID, frameIDType, renderID, i, l;
 
 		// Exposed properties
 		self.element = element;
@@ -67,8 +67,12 @@
 		 */
 		self.pause = function () {
 			// frameID can be timeout, or animationFrame ID
-			cAF(frameID);
-			clearTimeout(frameID);
+      if(frameIDType === 'timeout') {
+        clearTimeout(frameID);
+      } else if (frameIDType === 'animation') {
+        cAF(frameID);
+      }
+      frameIDType = null;
 			frameID = 0;
 			if (!self.isPaused) {
 				self.isPaused = true;
@@ -268,8 +272,10 @@
 					frameID = 0;
 				} else {
 					if (o.fps >= 60) {
+            frameIDType = 'animation';
 						frameID = rAF(requestRender);
 					} else {
+            frameIDType = 'timeout';
 						frameID = setTimeout(requestRender, 1000 / o.fps);
 					}
 				}
