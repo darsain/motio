@@ -46,6 +46,17 @@ When isolating issues on jsfiddle, you can use this URL:
 - **[Methods](https://github.com/darsain/motio/wiki/Methods)** - all available methods, and how to use them
 - **[Events](https://github.com/darsain/motio/wiki/Events)** - all available events, and how to register callbacks
 
+*Other languages are maintained by 3rd parties.*
+
+### Chinese
+
+- [Markup](http://strongme.github.io/Motio-Wiki-CN-Markup.html)
+- [Calling](http://strongme.github.io/Motio-Wiki-CN-Calling.html)
+- [Options](http://strongme.github.io/Motio-Wiki-CN-Options.html)
+- [Properties](http://strongme.github.io/Motio-Wiki-CN-Properties.html)
+- [Methods](http://strongme.github.io/Motio-Wiki-CN-Methods.html)
+- [Events](http://strongme.github.io/Motio-Wiki-CN-Events.html)
+
 ## Contributing
 
 Please, read the [Contributing Guidelines](CONTRIBUTING.md) for this project.
