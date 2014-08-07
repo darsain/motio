@@ -31,6 +31,15 @@
 		}
 	}());
 
+	// Returns time in as precise manner as possible
+	var getTime = (function () {
+		var perf = w.performance;
+		if (perf && perf.now) return perf.now.bind(perf);
+		return function () {
+			return +new Date();
+		};
+	}());
+
 	/**
 	 * Motio.
 	 *
@@ -51,7 +60,7 @@
 		var callbacks = {};
 		var animation = {};
 		var active = 0;
-		var pos, bgPos, lastPos, frameID, renderID, i, l;
+		var pos, bgPos, lastPos, frameID, i, l;
 
 		// Exposed properties
 		self.element = element;
@@ -66,10 +75,9 @@
 		 * @return {Object} Motio instance.
 		 */
 		self.pause = function () {
-			// frameID can be timeout, or animationFrame ID
 			cAF(frameID);
-			clearTimeout(frameID);
 			frameID = 0;
+			animation.lastFrame = 0;
 			if (!self.isPaused) {
 				self.isPaused = true;
 				trigger('pause');
@@ -104,7 +112,7 @@
 			if (!frameID) {
 				self.isPaused = false;
 				trigger('play');
-				requestRender();
+				frameID = rAF(render);
 			}
 		}
 
@@ -233,8 +241,14 @@
 		 * @return {Void}
 		 */
 		function render() {
-			// Reset renderID
-			renderID = 0;
+			frameID = rAF(render);
+			var time = getTime();
+
+			// Don't render when it's not time for next frame yet
+			if (o.fps < 60 && animation.lastFrame && animation.lastFrame + (1000 / o.fps) + 1 > time) return;
+
+			animation.lastFrame = time;
+			positionTick();
 
 			// Prepare new background position
 			bgPos = isPan ? Math.round(pos.x) + 'px ' + Math.round(pos.y) + 'px' : frames[active];
@@ -253,29 +267,6 @@
 				self.pause();
 				if (type(animation.callback) === 'function') {
 					animation.callback.call(self);
-				}
-			}
-		}
-
-		/**
-		 * Render rAF wrapper.
-		 *
-		 * @return {Int} Animation frame index.
-		 */
-		function requestRender() {
-			if (!(animation.finite && animation.to === active)) {
-				if (animation.immediate) {
-					frameID = 0;
-				} else {
-					if (o.fps >= 60) {
-						frameID = rAF(requestRender);
-					} else {
-						frameID = setTimeout(requestRender, 1000 / o.fps);
-					}
-				}
-				positionTick();
-				if (!renderID) {
-					renderID = rAF(render);
 				}
 			}
 		}
