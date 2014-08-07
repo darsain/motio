@@ -1,8 +1,8 @@
 {
 	"name": "motio",
 	"description": "Sprite based animations and panning.",
-	"version": "2.2.1",
-	"date": "2013-04-18 17:37:40 +00:00",
+	"version": "2.2.2",
+	"date": "2014-08-07 20:16:51 +00:00",
 	"bugs": "https://github.com/darsain/motio/issues",
 	"repository": {
 		"type": "git",
