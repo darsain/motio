@@ -17,9 +17,36 @@ Motio has no dependencies, but there is an optional
 
 Works everywhere.
 
-### [Changelog](https://github.com/darsain/motio/wiki/Changelog)
+## Usage
 
-Motio upholds the [Semantic Versioning Specification](http://semver.org/).
+Sprite animation mode:
+
+```js
+var element = document.querySelector('#sprite');
+var sprite = new Motio(element, {
+	fps: 10,
+	frames: 14
+});
+sprite.play();   // start animation
+sprite.pause();  // pause animation
+sprite.toggle(); // toggle play/pause
+```
+
+Seamless background panning mode:
+
+```js
+var element = document.querySelector('#panning');
+var panning = new Motio(element, {
+	fps: 30, // Frames per second. More fps = higher CPU load.
+	speedX: -30 // Negative horizontal speed = panning to left.
+});
+sprite.play();    // start animation
+sprite.pause();   // pause animation
+sprite.toggle();  // toggle play/pause
+sprite.toStart(); // animate to 1st frame and stop
+sprite.toEnd();   // animate to last frame and stop
+sprite.to(10);    // animate to 11th frame and stop
+```
 
 ## Download
 
@@ -39,23 +66,7 @@ When isolating issues on jsfiddle, you can use this URL:
 
 ## Documentation
 
-- **[Markup](https://github.com/darsain/motio/wiki/Markup)** - how should the HTML & CSS look like
-- **[Calling](https://github.com/darsain/motio/wiki/Calling)** - how to call Motio
-- **[Options](https://github.com/darsain/motio/wiki/Options)** - all available options
-- **[Properties](https://github.com/darsain/motio/wiki/Properties)** - accessible Motio object properties
-- **[Methods](https://github.com/darsain/motio/wiki/Methods)** - all available methods, and how to use them
-- **[Events](https://github.com/darsain/motio/wiki/Events)** - all available events, and how to register callbacks
-
-*Other languages are maintained by 3rd parties.*
-
-### Chinese
-
-- [Markup](http://strongme.github.io/Motio-Wiki-CN-Markup.html)
-- [Calling](http://strongme.github.io/Motio-Wiki-CN-Calling.html)
-- [Options](http://strongme.github.io/Motio-Wiki-CN-Options.html)
-- [Properties](http://strongme.github.io/Motio-Wiki-CN-Properties.html)
-- [Methods](http://strongme.github.io/Motio-Wiki-CN-Methods.html)
-- [Events](http://strongme.github.io/Motio-Wiki-CN-Events.html)
+Can be found in the [docs](https://github.com/darsain/motio/tree/master/docs) directory.
 
 ## Contributing
 
