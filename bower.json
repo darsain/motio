@@ -1,0 +1,13 @@
+{
+  "name": "motio",
+  "version": "2.2.2",
+  "homepage": "https://github.com/WillemLabu/motio",
+  "main": "dist/motio.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
