@@ -18,7 +18,7 @@ var panning = new Motio(element, {
 
 	// Sprite animation specific options
 	frames:   0, // Number of frames in sprite.
-	vertical: 0, // Tells Motio that you are using vertically stacked sprite image.
+	vertical: false, // Tells Motio that you are using vertically stacked sprite image.
 	width:    0, // Set the frame width manually (optional).
 	height:   0, // Set the frame height manually (optional).
 
