@@ -36,7 +36,7 @@ var panning = new Motio(element, {
 	fps: 30, // Frames per second. More fps = higher CPU load.
 	speedX: -30 // Negative horizontal speed = panning to left.
 });
-sprite.play(); // start animation
+panning.play(); // start animation
 
 // Sprite
 var element = document.querySelector('#sprite');
