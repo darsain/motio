@@ -30,6 +30,9 @@ var sprite = new Motio(element, {
 sprite.play();   // start animation
 sprite.pause();  // pause animation
 sprite.toggle(); // toggle play/pause
+sprite.toStart(); // animate to 1st frame and stop
+sprite.toEnd();   // animate to last frame and stop
+sprite.to(10);    // animate to 11th frame and stop
 ```
 
 Seamless background panning mode:
@@ -43,9 +46,6 @@ var panning = new Motio(element, {
 panning.play();    // start animation
 panning.pause();   // pause animation
 panning.toggle();  // toggle play/pause
-panning.toStart(); // animate to 1st frame and stop
-panning.toEnd();   // animate to last frame and stop
-panning.to(10);    // animate to 11th frame and stop
 ```
 
 ## Download
