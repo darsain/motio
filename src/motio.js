@@ -517,4 +517,8 @@
 		bgWidth:  0, // Width of the background image (optional).
 		bgHeight: 0  // Height of the background image (optional).
 	};
+
+	if (typeof exports === 'object' && typeof module === 'object') {
+		module.exports = Motio;
+	}
 })(window);
