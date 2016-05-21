@@ -1,13 +1,30 @@
 {
-	"name": "motio",
-	"version": "0.0.0",
-	"devDependencies": {
-		"grunt-contrib-jshint": "~0.7.2",
-		"grunt-contrib-concat": "~0.3.0",
-		"grunt-contrib-clean": "~0.5.0",
-		"grunt-tagrelease": "~0.2.1",
-		"grunt-bumpup": "~0.4.2",
-		"grunt-gcc": "~0.2.2",
-		"grunt": "~0.4.2"
-	}
+  "name": "motio",
+  "version": "2.2.2",
+  "description": "Small JavaScript library for sprite based animations and panning",
+  "homepage": "http://darsa.in/motio",
+  "author": {
+    "name": "darsain",
+    "url": "https://github.com/darsain"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darsain/motio.git"
+  },
+  "keywords": [
+    "Motio",
+    "JavaScript",
+    "animations",
+    "panning"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-tagrelease": "~0.2.1",
+    "grunt-bumpup": "~0.4.2",
+    "grunt-gcc": "~0.2.2",
+    "grunt": "~0.4.2"
+  }
 }
